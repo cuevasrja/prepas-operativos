@@ -3,15 +3,22 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include "selection_sort.h"
 
-//Funcion para intercambiar 2 elementos de un array
+/**
+ * @file selection_sort.c
+ * Swaps two elements in an array.
+*/
 void swap(int* elementx, int* elementy){
     int temp = *elementx;
     *elementx = *elementy;
     *elementy = temp;
 }
 
-//Funcion para imprimir un array
+/** 
+ * @file selection_sort.c
+ * Prints the elements of an array.
+*/
 void arrayprinter(int array[], int len){
     int i;
     for(i = 0; i < len; i++)
@@ -19,7 +26,10 @@ void arrayprinter(int array[], int len){
     printf("\n");
 }
 
-//Selection sort usando procesos, el proceso padre espera en el elemento i (i yendo desde 0 hasta len-2) que el proceso hijo consiga el indice del menor elemento
+/**
+ * @file selection_sort.c
+ * Performs selection sort on an array using processes.
+*/
 void selectionSort(int array[], int len){
     //variables
     int i, j, index;

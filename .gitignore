@@ -1,0 +1,35 @@
+# Compilados de C
+*.o
+*.out
+*.obj
+*.exe
+*.gch
+*.a
+*.so
+*.dll
+
+# Archivos de depuración
+*.dSYM/
+*.stackdump
+
+# Archivos de respaldo y temporales
+*~
+*.swp
+*.bak
+*.tmp
+
+# Archivos de proyectos de IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# Archivos de configuración de compiladores
+Makefile~
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+
+# Otros
+tags
+.DS_Store

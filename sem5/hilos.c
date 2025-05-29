@@ -3,10 +3,12 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <fcntl.h>
+#include "hilos.h"
 
-// Pipe: 0 for reading, 1 for writing
-int pipefd[2]; // Pipe file descriptors
-
+/**
+ * @file hilos.c
+ * Implementation of the seller thread
+ */
 void *seller(void *arg) {
     int price;
     for (int i = 0; i < 10; i++) {
@@ -18,6 +20,10 @@ void *seller(void *arg) {
     return NULL;
 }
 
+/**
+ * @file hilos.c
+ * Implementation of the consumer thread
+ */
 void *consumer(void *arg) {
     int price;
     for (int i = 0; i < 10; i++) {
