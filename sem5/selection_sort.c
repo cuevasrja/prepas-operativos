@@ -31,37 +31,37 @@ void arrayprinter(int array[], int len){
  * Performs selection sort on an array using processes.
 */
 void selectionSort(int array[], int len){
-    //variables
+    // Variables
     int i, j, index;
     pid_t pid;
-    //primer ciclo for
+    // First cycle for selection sort
     for (i = 0; i < len-1; i++){
         index = i;
-        //fork, aqui el padre espera a que el hijo termine
+        // Fork a new process
         pid = fork();
-        //hijo
+        // If fork is successful, we have two processes: parent and child
         if (pid == 0){
-            //segundo ciclo for
+            // Second cycle to find the minimum element
             for (j = i+1; j < len; j++){
-                //cambio de indice del menor elemento
+                // Change the index if a smaller element is found
                 if (array[j] < array[index]){
                     index = j;
                 }
             }
-            //ponemos que el proceso salga con index para asi llamarlo desde el padre
+            // Take the minimum element and swap it with the first unsorted element
             exit(index);
         }
         //padre
         else if (pid > 0){
             int status;
-            //espera a que el hijo acabe
+            // Wait for the child process to finish
             wait(&status);
-            //swap
+            // Swap the elements in the parent process
             swap(&array[i], &array[WEXITSTATUS(status)]);
-            //imprimir el array para verificar
+            // Print the array after each swap
             arrayprinter(array, len);
         }
-        //si fork falla
+        // If fork fails, print an error message and exit
         else {
             printf("Fork failed \n");
             exit(-1);
