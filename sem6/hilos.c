@@ -10,7 +10,7 @@ void *slowprintf(void *arg) {
     msg = (char *)arg; 
     for ( i = 0 ; i < strlen(msg) ; i++ ) { 
         printf("%c", msg[i]); 
-        fflush(stdout); 
+        // fflush(stdout); 
         usleep(1000000); 
     } 
 } 
