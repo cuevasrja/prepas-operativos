@@ -54,6 +54,12 @@ int main(int argc, char const *argv[])
         return 1;
     }
 
+    if (ferror(file)) {
+        perror("Error al leer el archivo");
+        fclose(file);
+        return 1;
+    }
+
     printf("\nLeyendo las primeras %d líneas del archivo %s:\n", n, argv[1]);
 
     char line[256];
@@ -65,12 +71,6 @@ int main(int argc, char const *argv[])
         lineCount++;
     }
     printf("\n");
-
-    if (ferror(file)) {
-        perror("Error al leer el archivo");
-        fclose(file);
-        return 1;
-    }
 
     // Cerrar el archivo
     fclose(file);

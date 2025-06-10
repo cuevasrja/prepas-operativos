@@ -43,7 +43,7 @@ int main(int argc, char* argv[]){
 	#endif
 	printf("El archivo ocupa %d bytes\n", nodo.st_size);
 	printf("Fue accedido por ultima vez el %s\n", asctime(localtime(&nodo.st_atime)));	//localtime devuelve un struct del cual pueden extraer solo el mes o solo el minuto, etc. Investiguen más si les interesa
-	printf("Fue modificdo por ultima vez el %s\n", asctime(localtime(&nodo.st_mtime)));
+	printf("Fue modificado por ultima vez el %s\n", asctime(localtime(&nodo.st_mtime)));
 	printf("Esta informacion fue cambiada por ultima vez el %s\n", asctime(localtime(&nodo.st_ctime)));
 	
 	return EXIT_SUCCESS;	//el programa ha termnado exitosamente
