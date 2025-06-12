@@ -37,6 +37,10 @@ void mostrarMenu(){
 */
 char* minusculas(char* str){
     char* str2 = malloc(strlen(str) * sizeof(char));
+    if (str2 == NULL) {
+        fprintf(stderr, "Error allocating memory\n");
+        exit(EXIT_FAILURE);
+    }
     int i = 0;
     while (i < strlen(str)){
         str2[i] = tolower(str[i]);
@@ -51,6 +55,10 @@ char* minusculas(char* str){
 int leerOpcion(){
     int opcion = -1;
     char* texto = malloc(100 * sizeof(char));
+    if (texto == NULL) {
+        fprintf(stderr, "Error allocating memory\n");
+        exit(EXIT_FAILURE);
+    }
     printf("Ingrese una opcion: \033[92;1m");
     // Leemos el texto con espacios
     scanf(" %[^\n]s", texto);
